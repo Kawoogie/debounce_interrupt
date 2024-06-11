@@ -33,7 +33,7 @@
   <p align="center">
     This code debounces inputs for the Mbed OS. It has interrupt functionality built into the debouncing function. Written for Mbed OS 6.16. Examples are written for the MAX32630FTHR.
     <br />
-    <a href="https://github.com/Kawoogie/Debounce_interrupt"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Kawoogie/debounce_interrupt"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Kawoogie/debounce_interrupt">View Demo</a>
@@ -78,7 +78,7 @@ DebounceLib is an Mbed OS library for debouncing switches. It provides a simple 
 - Debounces a switch connected to a specified pin. 
 - Triggers a callback function when the switch state is stable. - Configurable debounce time.
 
-- The `DebounceLib.h` and `DebounceLib.cpp` files contain the split library code with detailed Doxygen-style comments. 
+- The `DebounceIntrptLib.h` and `DebounceIntrptLib.cpp` files contain the split library code with detailed Doxygen-style comments. 
 - The `README.md` file provides a description of the library, installation instructions, usage example, API documentation, and license information, formatted for posting on GitHub.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
