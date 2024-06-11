@@ -110,7 +110,28 @@ This code was tested on a MAX32630FTHR and a MAX32625PICO.
 ## Usage
 Here's an example of how to use the DebounceintrptLib library to debounce a button and toggle an LED on and off using interrupts. 
 ### Example 
-```cpp #include "mbed.h" #include "DebounceIntrptLib.h" // LED to indicate the state DigitalOut led(LED1); // Function to toggle the LED void toggle_led() { led = !led; } // Create debounce instance for P5_7 with a debounce time of 50 ms DebounceLib debounce(P5_7, 50, toggle_led); int main() { // Initially turn off the LED led = 0; // Main loop does nothing, as all work is done in interrupts while (true) { ThisThread::sleep_for(1000ms); // Sleep to reduce CPU usage } }
+```
+cpp #include "mbed.h" 
+#include "DebounceIntrptLib.h"
+// LED to indicate the state
+DigitalOut led(LED1);
+
+// Function to toggle the LED
+void toggle_led() {
+  led = !led;
+}
+
+// Create debounce instance for P5_7 with a debounce time of 50 ms
+DebounceLib debounce(P5_7, 50, toggle_led);
+int main() {
+  // Initially turn off the LED
+  led = 0;
+  // Main loop does nothing, as all work is done in interrupts
+  while (true) {
+    ThisThread::sleep_for(1000ms); // Sleep to reduce CPU usage
+  }
+}
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
