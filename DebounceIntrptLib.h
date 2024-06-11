@@ -54,4 +54,4 @@ private:
     void check_state();
 };
 
-#endif // DEBOUNCE_LIB_H
+#endif // DEBOUNCEINTRPTLIB_H
