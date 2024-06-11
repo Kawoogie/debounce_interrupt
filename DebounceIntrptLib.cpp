@@ -1,4 +1,4 @@
-#include "DebounceLib.h"
+#include "DebounceIntrptLib.h"
 
 DebounceLib::DebounceLib(PinName pin, uint32_t debounce_time_ms, Callback<void()> cb) 
     : _pin(pin), _debounce_time_ms(debounce_time_ms), _last_read(1), _last_stable_state(1), _callback(cb) {
