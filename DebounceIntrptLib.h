@@ -1,5 +1,5 @@
-#ifndef DEBOUNCE_LIB_H
-#define DEBOUNCE_LIB_H
+#ifndef DEBOUNCEINTRPTLIB_H
+#define DEBOUNCEINTRPTLIB_H
 
 #include "mbed.h"
 
