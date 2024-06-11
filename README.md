@@ -76,10 +76,14 @@
 ## About The Project
 DebounceLib is an Mbed OS library for debouncing switches. It provides a simple way to debounce a switch connected to a specified pin and triggers a callback function when the switch state changes and remains stable for a specified debounce time.
 - Debounces a switch connected to a specified pin. 
-- Triggers a callback function when the switch state is stable. - Configurable debounce time.
+- Triggers a callback function when the switch state is stable.
+- Configurable debounce time.
+- Supports both momentary and bi-stable switches.
 
+Notes about the repository:
 - The `DebounceIntrptLib.h` and `DebounceIntrptLib.cpp` files contain the split library code with detailed Doxygen-style comments. 
-- The `README.md` file provides a description of the library, installation instructions, usage example, API documentation, and license information, formatted for posting on GitHub.
+- The `README.md` file provides a description of the library, installation instructions, usage example, and API documentation.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -93,14 +97,13 @@ To use this library, include the `DebounceIntrptLib.h` and `DebounceIntrptLib.cp
 ### Prerequisites
 This code is written for Mbed OS 6.16.
 This code needs to be compiled using ARM KEIL Studio Cloud or Mbed Studio.
-   ```
+
+This code was tested on a MAX32630FTHR and a MAX32625PICO.
 
 ### Installation
 This code can be imported to Mbed Studio by selecting Import Program under the File menu. When prompted, copy and paste the URL for this project into the Import Project pop-up.
 The code needs to be compiled into a binary file, then uploaded to the microcontroller using a bootloader.
-This code was tested on a MAX32630FTHR and a MAX32625PICO.
 
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,26 +114,30 @@ This code was tested on a MAX32630FTHR and a MAX32625PICO.
 Here's an example of how to use the DebounceintrptLib library to debounce a button and toggle an LED on and off using interrupts. 
 ### Example 
 ```
-cpp #include "mbed.h" 
+#include "mbed.h"
 #include "DebounceIntrptLib.h"
+
 // LED to indicate the state
 DigitalOut led(LED1);
 
 // Function to toggle the LED
 void toggle_led() {
-  led = !led;
+    led = !led;
 }
 
-// Create debounce instance for P5_7 with a debounce time of 50 ms
-DebounceLib debounce(P5_7, 50, toggle_led);
+// Create debounce instance for P5_7 with a debounce time of 50 ms, for a momentary switch
+DebounceIntrptLib debounce(P5_7, 50, toggle_led, true);
+
 int main() {
-  // Initially turn off the LED
-  led = 0;
-  // Main loop does nothing, as all work is done in interrupts
-  while (true) {
-    ThisThread::sleep_for(1000ms); // Sleep to reduce CPU usage
-  }
+    // Initially turn off the LED
+    led = 0;
+
+    // Main loop does nothing, as all work is done in interrupts
+    while (true) {
+        ThisThread::sleep_for(1000ms); // Sleep to reduce CPU usage
+    }
 }
+
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
